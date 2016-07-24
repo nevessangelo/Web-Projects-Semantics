@@ -1,0 +1,52 @@
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+
+
+:TopWikiLak a void:Dataset;
+a foaf:homepage <http://swlab.ic.uff.br/TopWikiLak/>;
+dcterms:title “TopWikiLak”^^xsd:string ;
+dcterms:description “DataSet do LAK, contendo artigos publicações, entre outros”^^xsd:string ;
+dcterms:creator :Student1;
+dcterms:creator :Student2;
+dcterms:subject https://github.com/dnmilne/wikipediaminer/wiki/About-wikipedia-miner;
+void:dataDump <http://swlab.ic.uff.br/TopWikiLak/TopWikiLakFinal.rdf>;
+void:sparqlEndpoint <http://swlab.ic.uff.br/TopWikiLak/sparql>;
+void:vocabulary <http://www.w3.org/2003/01/geo/wgs84_pos>;
+void:vocabulary <http://www.openarchives.org/ore/terms/>;
+void:vocabulary <http://www.w3.org/1999/02/22-rdf-syntax-ns>;
+void:vocabulary <http://www.w3.org/2002/07/owl>;
+void:vocabulary <http://www.w3.org/2001/XMLSchema>;
+void:vocabulary <http://purl.org/dc/terms/>;
+void:vocabulary <http://www.w3.org/2004/02/skos/core>;
+void:vocabulary <http://www.w3.org/2000/01/rdf-schema>;
+void:vocabulary <http://xmlns.com/foaf/0.1/>;
+void:vocabulary <http://purl.org/dc/elements/1.1/>;
+void:vocabulary <http://rdvocab.info/ElementsGr2/>;
+void:vocabulary <http://www.europeana.eu/schemas/edm/>;
+void:vocabulary <http://rdfs.org/ns/void#>;
+void:vocabulary <http://www.w3.org/2003/01/geo/wgs84_pos>;
+void:vocabulary <http://vocab.gtfs.org/terms>;
+void:propertyPartition [ void:property dc:title; ];
+void:propertyPartition [ void:property dc:creator; ];
+void:propertyPartition [ void:property skos:prefLabel; ];
+void:propertyPartition [ void:property owl:sameAs; ];
+void:propertyPartition [ void:property dc:subject; ];
+void:propertyPartition [ void:property prov:KeyValue; ];
+void:propertyPartition [ void:property prov:PairKey; ];
+void:triples 889515;
+
+:Student1 a foaf:Person;
+rdfs:label “Angelo Neves”;
+foaf:mbox <mailto:nevessangelo@gmail.com>;
+.
+
+:Student2 a foaf:Person;
+rdfs:label “Felipe Silfer”;
+foaf:mbox <felipe.silfer@gmail.com>;
+.
