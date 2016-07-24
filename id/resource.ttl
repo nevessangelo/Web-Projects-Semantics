@@ -1,0 +1,8 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix my:    <http://swlab.ic.uff.br/id/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+my:lapaesleme  a   dcterms:Agent , owl:NamedIndividual , foaf:Person ;
+        foaf:mbox  <mailto://lapaesleme@ic.uff.br> .
