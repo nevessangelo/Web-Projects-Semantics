@@ -24,7 +24,7 @@ public class Fuseki {
 
     public String buscarTitulo(String uri) {
         String uri_tratado = "<" + uri + ">";
-        String serviceURI = "http://localhost:3030/TopWikiLakFinal";
+        String serviceURI = "http://localhost:8080/fuseki/TopWikiLakFinal";
         String query = "PREFIX swrc:<http://swrc.ontoware.org/ontology#>\n"
                 + "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"
                 + "\n"
@@ -42,7 +42,7 @@ public class Fuseki {
 
     public ArrayList<BuscaTopicos> buscarporTopico(String nome_topico) {
         ArrayList<BuscaTopicos> lista_buscatopicos = new ArrayList<BuscaTopicos>();
-        String serviceURI = "http://localhost:3030/TopWikiLakFinal";
+        String serviceURI = "http://localhost:8080/fuseki/TopWikiLakFinal";
         String query = "PREFIX swrc:<http://swrc.ontoware.org/ontology#>\n"
                 + "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"
                 + "PREFIX prov:<http://www.w3.org/ns/prov#>\n"
@@ -75,7 +75,7 @@ public class Fuseki {
     public Artigo buscarParametrosArtigo(String uri) {
         String uri_tratado = "<" + uri + ">";
         Artigo artigo = new Artigo();
-        String serviceURI = "http://localhost:3030/TopWikiLakFinal";
+        String serviceURI = "http://localhost:8080/fuseki/TopWikiLakFinal";
         String query = "PREFIX led:<http://data.linkededucation.org/ns/linked-education.rdf#>\n"
                 + "PREFIX swrc:<http://swrc.ontoware.org/ontology#>\n"
                 + "PREFIX prov:<http://www.w3.org/ns/prov#> \n"
@@ -157,7 +157,7 @@ public class Fuseki {
 
     public ArrayList<String> buscaURIS() {
         ArrayList<String> uris = new ArrayList<String>();
-        String serviceURI = "http://localhost:3030/TopWikiLakFinal";
+        String serviceURI = "http://localhost:8080/fuseki/TopWikiLakFinal";
         String query = "PREFIX led:<http://data.linkededucation.org/ns/linked-education.rdf#>\n"
                 + "PREFIX swrc:<http://swrc.ontoware.org/ontology#>\n"
                 + "SELECT ?paper ?fulltext \n"
