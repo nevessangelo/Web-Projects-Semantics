@@ -25,6 +25,9 @@ public class Triplas {
         this.object = object;             
     }
     
+    
+    
+    
    @Override
    public String toString(){
         String triple = "";
