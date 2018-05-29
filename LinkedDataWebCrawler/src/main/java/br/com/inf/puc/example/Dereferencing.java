@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.edu.example;
+package br.com.inf.puc.example;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -82,7 +82,7 @@ public class Dereferencing {
 	}
     
     public static void main(String[] args) {
-        String uri = "http://swlab.ic.uff.br/resource/id-6fbbb516-38a9-4a2b-bfbb-19d0ceffc1aa";
+        String uri = "http://triples.demo.thedatatank.com/demo.ttl";
         Model model = run(uri);
         displayModelTriples(model);
 //        ArrayList<Triplas> list_triplas = (ArrayList<Triplas>) getObjects(model);

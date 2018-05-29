@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.edu.crawler;
+package br.com.inf.puc.crawler;
 
 /**
  *
@@ -14,6 +14,7 @@ public class Triples {
     private String subject;
     private String predicate;
     private String object;
+ 
     
     public Triples(){
         
