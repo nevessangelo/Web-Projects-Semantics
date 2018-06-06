@@ -32,9 +32,24 @@ public abstract class TemplateCrawler {
         Model model = Dereferecing(uri);
         ArrayList<String> subject = GetSubject(model, uri);
         ArrayList<String> object = GetObject(model, uri);
-        TypeSearch(subject, object, k);
+        ArrayList<String> uris = UnionURIs(subject, object);
+        TypeSearch(uris, k);
     }
     
+    final ArrayList<String> UnionURIs(ArrayList<String> subjects, ArrayList<String> objects){
+        ArrayList<String> URIs = new ArrayList<>();
+        for(String subject: subjects)
+            URIs.add(subject);
+        
+        for(String object: objects){
+            if(!objects.contains(object)){
+                URIs.add(object);
+            }
+                
+        }
+            
+        return URIs;
+    }
     
     final ArrayList<String> GetObject(Model model, String uri){
         ArrayList<String> listOject = new ArrayList<>();
@@ -74,7 +89,6 @@ public abstract class TemplateCrawler {
    
     final Model Dereferecing(String uri) {
         try {
-            ArrayList<Triples> list_triples = new ArrayList<>();
             Model model = ModelFactory.createDefaultModel();
             URLConnection conn = new URL(uri).openConnection();
             conn.setRequestProperty("Accept", "application/rdf+xml");
@@ -89,6 +103,6 @@ public abstract class TemplateCrawler {
         return null;
     }
 
-    public abstract void TypeSearch(ArrayList<String> subjects, ArrayList<String> objects, int k);
+    public abstract void TypeSearch(ArrayList<String> uris, int k);
 
 }

@@ -6,7 +6,6 @@
 package br.com.inf.puc.Search;
 
 import br.com.inf.puc.crawler.TemplateCrawler;
-import br.com.inf.puc.crawler.Triples;
 import java.util.ArrayList;
 
 /**
@@ -16,17 +15,13 @@ import java.util.ArrayList;
 public class VoIDSearch extends TemplateCrawler {
 
     @Override
-    public void TypeSearch(ArrayList<String> subjects, ArrayList<String> objects, int k) {
-      
-        System.out.println("VoID busca");
-        for(String subject: subjects){
+    public void TypeSearch(ArrayList<String> uris, int k) {
+        
+        for(String subject: uris){
             System.out.println(subject);
         }
         
-        for(String object: objects){
-            VoIDSearch voidsearch = new VoIDSearch();
-            voidsearch.Search(object, 4);
-        }
+        
     }
     
     
