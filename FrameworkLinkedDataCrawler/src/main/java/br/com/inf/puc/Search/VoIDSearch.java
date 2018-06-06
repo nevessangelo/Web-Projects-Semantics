@@ -7,6 +7,8 @@ package br.com.inf.puc.Search;
 
 import br.com.inf.puc.crawler.TemplateCrawler;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -16,9 +18,13 @@ public class VoIDSearch extends TemplateCrawler {
 
     @Override
     public void TypeSearch(ArrayList<String> uris, int k) {
-        
-        for(String subject: uris){
-            System.out.println(subject);
+        ExecutorService pool = Executors.newWorkStealingPool(4);
+        for(String uri: uris){
+            pool.submit(new SearchVoIDTask(uri, k));
+            
+            //perguntas:
+            //pool de theards é um agente de software?
+            //posso armazenar no banco de dados?
         }
         
         
