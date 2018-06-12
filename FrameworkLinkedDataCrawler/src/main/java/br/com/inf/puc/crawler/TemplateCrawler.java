@@ -28,30 +28,31 @@ import org.apache.jena.rdf.model.ModelFactory;
  */
 public abstract class TemplateCrawler {
 
-    public final void Search(String uri, int k) {
+    public final void Search(String uri) {
         Model model = Dereferecing(uri);
         ArrayList<String> subject = GetSubject(model, uri);
         ArrayList<String> object = GetObject(model, uri);
         ArrayList<String> uris = UnionURIs(subject, object);
-        TypeSearch(uris, k);
+        TypeSearch(uris);
     }
-    
-    final ArrayList<String> UnionURIs(ArrayList<String> subjects, ArrayList<String> objects){
+
+    final ArrayList<String> UnionURIs(ArrayList<String> subjects, ArrayList<String> objects) {
         ArrayList<String> URIs = new ArrayList<>();
-        for(String subject: subjects)
+        for (String subject : subjects) {
             URIs.add(subject);
-        
-        for(String object: objects){
-            if(!objects.contains(object)){
+        }
+
+        for (String object : objects) {
+            if (!subjects.contains(object)) {
                 URIs.add(object);
             }
-                
+
         }
-            
+
         return URIs;
     }
-    
-    final ArrayList<String> GetObject(Model model, String uri){
+
+    final ArrayList<String> GetObject(Model model, String uri) {
         ArrayList<String> listOject = new ArrayList<>();
         String queryString = "SELECT ?o WHERE {?s ?p ?o}";
         Query query = QueryFactory.create(queryString);
@@ -59,18 +60,19 @@ public abstract class TemplateCrawler {
         ResultSet rs = exec.execSelect();
         while (rs.hasNext()) {
             QuerySolution sol = rs.next();
-            if(sol.get("?o").isResource()){
+            if (sol.get("?o").isResource()) {
                 String object = sol.getResource("?o").toString();
-                if(!uri.equals(object))
+                if (!uri.equals(object)) {
                     listOject.add(object);
-            }   
-     
+                }
+            }
+
         }
+
         return listOject;
-        
     }
-    
-    final ArrayList<String> GetSubject(Model model, String uri){
+
+    final ArrayList<String> GetSubject(Model model, String uri) {
         ArrayList<String> listSubject = new ArrayList<>();
         String queryString = "SELECT ?s WHERE  {?s ?p ?o}";
         Query query = QueryFactory.create(queryString);
@@ -79,21 +81,22 @@ public abstract class TemplateCrawler {
         while (rs.hasNext()) {
             QuerySolution sol = rs.next();
             String subject = sol.getResource("?s").toString();
-            if(!uri.equals(subject))
+            if (!uri.equals(subject)) {
                 listSubject.add(subject);
-            
+            }
+
         }
         return listSubject;
     }
-    
-   
+
     final Model Dereferecing(String uri) {
         try {
             Model model = ModelFactory.createDefaultModel();
             URLConnection conn = new URL(uri).openConnection();
             conn.setRequestProperty("Accept", "application/rdf+xml");
             InputStream in = conn.getInputStream();
-            model.read(in, null);
+            model.read(in, uri);
+
             return model;
         } catch (MalformedURLException ex) {
             Logger.getLogger(TemplateCrawler.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,6 +106,6 @@ public abstract class TemplateCrawler {
         return null;
     }
 
-    public abstract void TypeSearch(ArrayList<String> uris, int k);
+    public abstract void TypeSearch(ArrayList<String> uris);
 
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DomainSearch extends TemplateCrawler{
 
     @Override
-    public void TypeSearch(ArrayList<String> uris, int k) {
+    public void TypeSearch(ArrayList<String> uris) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
