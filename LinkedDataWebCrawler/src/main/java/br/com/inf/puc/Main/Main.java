@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Starting Crawler....");
         VoIDSearch voidsearch = new VoIDSearch();
-        voidsearch.Search("http://swlab.ic.uff.br/resource/id-6fbbb516-38a9-4a2b-bfbb-19d0ceffc1aa", 4);
+        voidsearch.Search("http://swlab.ic.uff.br/resource/id-6fbbb516-38a9-4a2b-bfbb-19d0ceffc1aa");
         //implementar search void primeiro
         
     }
